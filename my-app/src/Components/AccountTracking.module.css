@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+}
+.mainBox {
+  color: white;
+  margin: 0 auto;
+  /* border: 2px solid red; */
+  width: 400px;
+  height: 200px;
+  background-color: #6865a3;
+  border-radius: 15px;
+}
+
+.balanceNumber {
+  font-size: 30px;
+}
+
+.defaultBox {
+  margin-top: 10px;
+  display: flex;
+  /* border: 2px solid red; */
+  justify-content: space-between;
+  padding: 25px;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+.nextArrow {
+  height: 40px;
+}
+
+.income {
+  height: 40px;
+  margin-right: 20px;
+}
+
+.expenseIncome {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  /* border: 2px solid red; */
+}
+
+.lightText {
+  font-weight: 500;
+}
+
+.expenses {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid red; */
+}
+
+.rightBox {
+  display: flex;
+  align-items: center;
+}
+
+.leftBox {
+  display: flex;
+  align-items: center;
+}

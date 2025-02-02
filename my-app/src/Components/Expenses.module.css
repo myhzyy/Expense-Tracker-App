@@ -1,0 +1,29 @@
+.expenses {
+  margin: 0 auto;
+  /* border: 2px solid red; */
+  width: 400px;
+  margin-top: 15px;
+}
+
+h1 {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.userExpensesContainer {
+  /* border: 2px solid red; */
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 10px;
+}
+
+.userExpenses {
+  font-weight: 400;
+  padding: 3px;
+  font-size: medium;
+}
+
+.input {
+  font-size: medium;
+  margin-bottom: 5px;
+}

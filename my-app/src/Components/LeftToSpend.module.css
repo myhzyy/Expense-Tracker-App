@@ -1,0 +1,15 @@
+.leftToSpend {
+  margin: 0 auto;
+  margin-top: 15px;
+  border-radius: 15px;
+  width: 400px;
+  background-color: #e9f1de;
+  box-sizing: border-box;
+  padding: 10px;
+  font-style: italic;
+}
+
+.heading {
+  margin-top: 10px;
+  font-weight: 300;
+}

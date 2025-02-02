@@ -1,0 +1,15 @@
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  /* border: 2px solid red; */
+}
+
+.topIcon {
+  height: 100%;
+}
+
+.hamBurgerMenu {
+  height: 50%;
+}
