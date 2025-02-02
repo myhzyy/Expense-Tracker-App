@@ -1,0 +1,19 @@
+.signIn {
+  margin-top: 20px;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.signInHeader {
+  /* align-items: center; */
+  /* border: 2px solid red; */
+  align-self: center;
+}
+
+button {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 100px;
+}
