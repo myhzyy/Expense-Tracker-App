@@ -33,6 +33,8 @@ function App() {
 
   const { email, password, income, signedIn } = submittedData;
 
+  console.log(income);
+
   return (
     <>
       <TopSection />
