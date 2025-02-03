@@ -1,4 +1,4 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, act } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -9,40 +9,40 @@ import LeftToSpend from "./Components/LeftToSpend";
 import Expenses from "./Components/Expenses";
 import SignIn from "./Components/SignIn";
 
-const initialState = {
-  signedIn: false,
-  signInEmail: "",
-  signInPassword: "",
+let initialState = {
+  submittedData: {
+    email: "",
+    password: "",
+    income: "",
+    signedIn: false,
+  },
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case "signedIn": {
-      return { ...state, signedIn: true };
-    }
+    case "submit":
+      return { ...state, submittedData: { ...action.payload, signedIn: true } };
+
     default:
       throw new Error("Action unknown");
   }
 }
 
 function App() {
-  const [{ signedIn }, dispatch] = useReducer(reducer, initialState);
+  const [{ submittedData }, dispatch] = useReducer(reducer, initialState);
+
+  const { email, password, income, signedIn } = submittedData;
 
   return (
     <>
       <TopSection />
       <Summary />
-      {signedIn && <AccountTracking />}
+      {!signedIn && <SignIn dispatch={dispatch} />}
+      {signedIn && <AccountTracking income={income} email={email} />}
       {signedIn && <LeftToSpend />}
       {signedIn && <Expenses />}
-      {!signedIn && <SignIn />}
     </>
   );
 }
 
 export default App;
-
-/*
-
-
-*/

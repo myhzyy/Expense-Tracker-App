@@ -1,16 +1,20 @@
 import styles from "./AccountTracking.module.css";
 import nextPageIcon from "../assets/nextPage.png";
-import income from "../assets/income.png";
-import outgoings from "../assets/outgoings.png";
+import incomeImage from "../assets/income.png";
+import outgoingsImage from "../assets/outgoings.png";
 
-function AccountTracking() {
+function AccountTracking({ income, email }) {
   return (
     <>
+      <div className={styles.welcomeBackContainer}>
+        <h1 className={styles.welcomeBackDefault}>Welcome back</h1>
+        <h1 className={styles.welcomeBack}>{email}</h1>
+      </div>
       <div className={styles.mainBox}>
         <div className={styles.defaultBox}>
           <div>
-            <h3 className={styles.lightText}>Default</h3>
-            <h3 className={styles.balanceNumber}>£2345.30</h3>
+            <h3 className={styles.lightText}>Balance</h3>
+            <h3 className={styles.balanceNumber}>£{income}</h3>
           </div>
           <div>
             <img
@@ -23,7 +27,7 @@ function AccountTracking() {
 
         <div className={styles.expenseIncome}>
           <div className={styles.rightBox}>
-            <img className={styles.income} src={income} alt="income" />
+            <img className={styles.income} src={incomeImage} alt="income" />
 
             <div className={styles.expenses}>
               <h3 className={styles.lightText}>Expenses</h3>
@@ -33,7 +37,11 @@ function AccountTracking() {
 
           <div>
             <div className={styles.leftBox}>
-              <img className={styles.income} src={outgoings} alt="outgoings" />
+              <img
+                className={styles.income}
+                src={outgoingsImage}
+                alt="outgoings"
+              />
 
               <div>
                 <h3 className={styles.lightText}>Income</h3>

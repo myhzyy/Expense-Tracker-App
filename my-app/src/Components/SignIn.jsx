@@ -1,71 +1,56 @@
 import { useReducer } from "react";
 import styles from "./SignIn.module.css";
 
-const signInState = {
-  email: "",
-  password: "",
-  income: "",
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "email":
-      return { ...state, email: action.payload };
-
-    case "password":
-      return { ...state, password: action.payload };
-
-    case "income":
-      return { ...state, income: action.payload };
-
-    default:
-      throw new Error("Action unknown");
-  }
-}
-
-function SignIn() {
-  const [{ email, password, income }, dispatch] = useReducer(
-    reducer,
-    signInState
+function SignIn({ dispatch }) {
+  const [formState, setFormState] = useReducer(
+    (state, action) => ({ ...state, [action.type]: action.payload }),
+    { email: "", password: "", income: "" }
   );
 
-  return (
-    <div className={styles.signIn}>
-      <h1 className={styles.signInHeader}>Sign in</h1>
-      <h1>Email</h1>
-      <input
-        type="text"
-        onChange={(event) =>
-          dispatch({ type: "email", payload: event.target.value })
-        }
-        placeholder="type here"
-      />
-      <h1>Password</h1>
-      <input
-        type="text"
-        onChange={(event) =>
-          dispatch({ type: "password", payload: event.target.value })
-        }
-        placeholder="type here"
-      />
-      <h1>Income</h1>
-      <input
-        type="text"
-        onChange={(event) =>
-          dispatch({ type: "income", payload: event.target.value })
-        }
-        placeholder="type here"
-      />
+  function handleSubmit(e) {
+    e.preventDefault();
 
-      <button>Sign In</button>
-    </div>
+    dispatch({ type: "submit", payload: formState });
+  }
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormState({ type: name, payload: value });
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className={styles.signIn}>
+        <h1 className={styles.signInHeader}>Sign in</h1>
+        <h1>Email</h1>
+        <input
+          type="text"
+          name="email"
+          value={formState.email}
+          onChange={handleChange}
+          placeholder="type here"
+        />
+        <h1>Password</h1>
+        <input
+          type="text"
+          name="password"
+          value={formState.password}
+          onChange={handleChange}
+          placeholder="type here"
+        />
+        <h1>Income</h1>
+        <input
+          type="text"
+          name="income"
+          value={formState.income}
+          onChange={handleChange}
+          placeholder="type here"
+        />
+
+        <button>Sign In</button>
+      </div>
+    </form>
   );
 }
 
 export default SignIn;
-
-/*
-        <input type="text" value={inputValue}
-         onChange={handleChange} />
-
-*/

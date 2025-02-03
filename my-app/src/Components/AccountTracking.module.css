@@ -61,3 +61,22 @@
   display: flex;
   align-items: center;
 }
+
+.welcomeBackContainer {
+  margin: 0 auto;
+  margin-top: 12px;
+  width: 400px;
+  /* border: 2px solid red; */
+}
+
+.welcomeBack {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.welcomeBackDefault {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 20px;
+}
