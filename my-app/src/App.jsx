@@ -41,6 +41,8 @@ function App() {
 
   const totalMinusExpenses = income - total;
 
+  console.log(userSubmissions);
+
   return (
     <>
       <TopSection />

@@ -19,6 +19,7 @@ function Expenses({ userSubmissions, setUserSubmissions }) {
     const submission = {
       itemDescription: expenseName,
       itemAmount: expenseAmount,
+      id: crypto.randomUUID(),
     };
 
     setUserSubmissions((prevSubmissions) => [...prevSubmissions, submission]);
@@ -61,7 +62,7 @@ function Expenses({ userSubmissions, setUserSubmissions }) {
         <ul>
           {userSubmissions.map((user) => {
             return (
-              <li key={user.itemDescription}>
+              <li key={user.id}>
                 {user.itemDescription} - {user.itemAmount}
               </li>
             );

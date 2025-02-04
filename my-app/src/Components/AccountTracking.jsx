@@ -31,7 +31,7 @@ function AccountTracking({ income, email, total }) {
 
             <div className={styles.expenses}>
               <h3 className={styles.lightText}>Expenses</h3>
-              <h3>£700</h3>
+              <h3>£{total}</h3>
             </div>
           </div>
 
@@ -45,7 +45,7 @@ function AccountTracking({ income, email, total }) {
 
               <div>
                 <h3 className={styles.lightText}>Income</h3>
-                <h3>£1500</h3>
+                <h3>£{income}</h3>
               </div>
             </div>
           </div>
