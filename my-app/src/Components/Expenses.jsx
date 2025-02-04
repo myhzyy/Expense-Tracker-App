@@ -4,25 +4,31 @@ import styles from "./Expenses.module.css";
 function Expenses() {
   const [expenseName, setExpenseName] = useState("");
   const [expenseAmount, setExpenseAmount] = useState(0);
+  const [userSubmissions, setUserSubmissions] = useState([]);
 
-  console.log(expenseName);
-  console.log(expenseAmount);
+  console.log(userSubmissions);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "expenseName") {
-      setExpenseName(value);
-    } else if (name === "expenseAmount") {
-      setExpenseAmount(value);
-    }
-  };
+  function handleDescriptionChange(e) {
+    setExpenseName(e.target.value);
+  }
 
-  const handleSubmit = (e) => {
+  function handleAmountChange(e) {
+    setExpenseAmount(e.target.value);
+  }
+
+  function handleSubmit(e) {
     e.preventDefault();
 
-    setExpenseName;
-    setExpenseAmount;
-  };
+    const submission = {
+      itemDescription: expenseName,
+      itemAmount: expenseAmount,
+    };
+
+    setUserSubmissions((prevSubmissions) => [...prevSubmissions, submission]);
+
+    setExpenseName("");
+    setExpenseAmount("");
+  }
 
   return (
     <>
@@ -31,13 +37,13 @@ function Expenses() {
       </div>
       <div className={styles.userExpensesContainer}>
         <div className={styles.submitForm}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               className={styles.input}
               type="text"
               name="expenseName"
               value={expenseName}
-              onChange={handleChange}
+              onChange={handleDescriptionChange}
               placeholder="Expense Description"
             />
 
@@ -46,19 +52,37 @@ function Expenses() {
               type="text"
               name="expenseAmount"
               value={expenseAmount}
-              onChange={handleChange}
+              onChange={handleAmountChange}
               placeholder="Expense Amount"
             />
             <button className={styles.button}>Add Expense</button>
           </form>
         </div>
+      </div>
 
-        <h3 className={styles.userExpenses}>Sourdough Bread - $5</h3>
-        <h3 className={styles.userExpenses}>Avacado - $5</h3>
-        <h3 className={styles.userExpenses}>Oat Milk - $5</h3>
+      <div>
+        <ul>
+          {userSubmissions.map((user) => {
+            return (
+              <li key={user.itemDescription}>
+                {user.itemDescription} - {user.itemAmount}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </>
   );
 }
 
 export default Expenses;
+
+/*
+
+   <ul>
+      {users.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+
+*/
