@@ -3,7 +3,7 @@ import nextPageIcon from "../assets/nextPage.png";
 import incomeImage from "../assets/income.png";
 import outgoingsImage from "../assets/outgoings.png";
 
-function AccountTracking({ income, email }) {
+function AccountTracking({ income, email, total }) {
   return (
     <>
       <div className={styles.welcomeBackContainer}>
@@ -14,7 +14,7 @@ function AccountTracking({ income, email }) {
         <div className={styles.defaultBox}>
           <div>
             <h3 className={styles.lightText}>Balance</h3>
-            <h3 className={styles.balanceNumber}>£{income}</h3>
+            <h3 className={styles.balanceNumber}>£{income - total}</h3>
           </div>
           <div>
             <img

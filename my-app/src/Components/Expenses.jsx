@@ -1,12 +1,9 @@
 import { useState } from "react";
 import styles from "./Expenses.module.css";
 
-function Expenses() {
+function Expenses({ userSubmissions, setUserSubmissions }) {
   const [expenseName, setExpenseName] = useState("");
-  const [expenseAmount, setExpenseAmount] = useState(0);
-  const [userSubmissions, setUserSubmissions] = useState([]);
-
-  console.log(userSubmissions);
+  const [expenseAmount, setExpenseAmount] = useState("");
 
   function handleDescriptionChange(e) {
     setExpenseName(e.target.value);
@@ -79,10 +76,5 @@ export default Expenses;
 
 /*
 
-   <ul>
-      {users.map((user) => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
 
 */

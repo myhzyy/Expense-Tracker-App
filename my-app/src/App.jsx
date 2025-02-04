@@ -30,17 +30,34 @@ function reducer(state, action) {
 
 function App() {
   const [{ submittedData }, dispatch] = useReducer(reducer, initialState);
-
   const { email, password, income, signedIn } = submittedData;
+  const [userSubmissions, setUserSubmissions] = useState([]);
+
+  const total = userSubmissions.reduce(
+    (accumulator, currentAccumulator) =>
+      accumulator + Number(currentAccumulator.itemAmount),
+    0
+  );
+
+  const totalMinusExpenses = income - total;
 
   return (
     <>
       <TopSection />
       <Summary />
       {!signedIn && <SignIn dispatch={dispatch} />}
-      {signedIn && <AccountTracking income={income} email={email} />}
-      {signedIn && <LeftToSpend />}
-      {signedIn && <Expenses />}
+      {signedIn && (
+        <AccountTracking income={income} email={email} total={total} />
+      )}
+      {signedIn && (
+        <LeftToSpend totalMinusExpenses={totalMinusExpenses} income={income} />
+      )}
+      {signedIn && (
+        <Expenses
+          userSubmissions={userSubmissions}
+          setUserSubmissions={setUserSubmissions}
+        />
+      )}
     </>
   );
 }
