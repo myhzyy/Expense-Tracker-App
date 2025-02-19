@@ -59,3 +59,9 @@ h1 {
 .headingUnderline {
   text-decoration: underline;
 }
+
+.expenseList {
+  /* border: 2px solid red; */
+  width: 350px;
+  margin: 0 auto;
+}

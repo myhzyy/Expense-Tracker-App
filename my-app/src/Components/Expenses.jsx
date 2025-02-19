@@ -59,7 +59,7 @@ function Expenses({ userSubmissions, setUserSubmissions }) {
       </div>
 
       <div>
-        <ul>
+        <ul className={styles.expenseList}>
           {userSubmissions.map((user) => {
             return (
               <li key={user.id}>
